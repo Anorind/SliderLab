@@ -1,0 +1,30 @@
+﻿<Window x:Class="Task2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <GroupBox Name="OutGroupBox" Header="Внешний GroupBox">
+            <StackPanel>
+                <GroupBox Name="GroupBox1" Header="Внутренний GroupBox1">
+                    <StackPanel>
+                        <Label Content="Ширина TextBlock"/>
+                        <TextBlock x:Name="myTextBlock" Background="Yellow" Text="{Binding ElementName=myTextBlock, Path=ActualWidth}"/>
+                        <Label Content="Ширина окна"/>
+                        <TextBlock Background="Yellow" Text="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth}"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Name="GroupBox2" Header="Внутренний GroupBox2">
+                    <StackPanel>
+                        <Label Content="Заголовок внутреннего GroupBox"/>
+                        <TextBlock Background="Yellow" Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type GroupBox}}, Path=Header}"/>
+                        <Label Content="Заголовок внешнего GroupBox"/>
+                        <TextBlock Background="Yellow" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type GroupBox}, AncestorLevel=2}, Path=Header}"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
+
+
+
